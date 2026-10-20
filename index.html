@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+  页面：PDF 文库静态快照（GitHub Pages 可直接部署）
+  说明：不依赖后端。数据由 build_data.py 从 MySQL pdf_docs 表导出成 data.js（window.PDF_DATA），
+        列表分页、搜索、关键词索引全部在浏览器端完成；PDF 文件本体放在本目录 pdfs/ 下，
+        data.js 里的 dir 均为 pdfs/… 相对路径（不含任何本机绝对路径），点击标题即在新页签直开对应 PDF。
+        部署方式见对话说明：本目录整体作为仓库内容推到 GitHub → Settings → Pages → 选分支根目录即可。
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF 文库 · 静态快照</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <header class="head">
+      <div>
+        <h1>PDF 文库</h1>
+        <p class="gen" id="gen"></p>
+      </div>
+      <div class="tools">
+        <input id="searchInput" type="text" placeholder="搜索标题 / 关键词…" aria-label="搜索标题或关键词" />
+        <button class="btn brand" id="searchBtn" type="button">搜索</button>
+        <button class="btn" id="clearBtn" type="button" hidden>清除</button>
+      </div>
+    </header>
+
+    <!-- 关键词索引：从导出数据里现算「被 ≥2 篇共用」的共性词，点击即搜索 -->
+    <section class="idx">
+      <div class="idx-head">
+        <strong>关键词索引</strong>
+        <span class="muted" id="idxSub"></span>
+        <button class="link" id="idxToggle" type="button">看全部关键词</button>
+      </div>
+      <div class="chips" id="idxChips"></div>
+    </section>
+
+    <p class="sub" id="sub"></p>
+    <div id="list"></div>
+    <footer class="pager">
+      <button class="btn" id="prevBtn" type="button">上一页</button>
+      <span class="muted" id="pageInfo"></span>
+      <button class="btn" id="nextBtn" type="button">下一页</button>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

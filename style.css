@@ -1,0 +1,113 @@
+/* PDF 文库静态快照样式：暗色极简，够用就行 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0f0f11;
+  color: #e6e6ea;
+  font: 14px/1.6 "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  padding: 28px 14px 60px;
+}
+.card {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #17171a;
+  border: 1px solid #26262a;
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+h1 { font-size: 20px; }
+.gen { font-size: 12px; color: #8a8a92; }
+.tools { display: flex; gap: 8px; }
+.tools input {
+  width: 230px;
+  height: 34px;
+  padding: 0 12px;
+  background: #101012;
+  border: 1px solid #2c2c31;
+  border-radius: 8px;
+  color: #e6e6ea;
+  outline: none;
+}
+.tools input:focus { border-color: #ff7a45; }
+.btn {
+  height: 34px;
+  padding: 0 14px;
+  background: #1f1f23;
+  border: 1px solid #2c2c31;
+  border-radius: 8px;
+  color: #cfcfd6;
+  cursor: pointer;
+  font-size: 13px;
+}
+.btn:hover:not(:disabled) { border-color: #ff7a45; color: #fff; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.brand { background: linear-gradient(90deg, #ff7a45, #ff4d4f); border: none; color: #fff; }
+.link { background: none; border: none; color: #8a8a92; cursor: pointer; font-size: 12px; margin-left: auto; }
+.link:hover { color: #ff7a45; }
+
+.idx { margin-top: 16px; padding: 12px 14px; background: #131315; border: 1px solid #232326; border-radius: 10px; }
+.idx-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 10px;
+  background: #1f1f23;
+  border: 1px solid #2c2c31;
+  border-radius: 999px;
+  color: #b8b8c0;
+  font-size: 12px;
+  cursor: pointer;
+}
+.chip:hover { color: #ff7a45; border-color: rgba(255, 122, 69, 0.55); }
+.chip.on { background: linear-gradient(90deg, #ff7a45, #ff4d4f); border-color: transparent; color: #fff; }
+.chip b { font-weight: 400; font-size: 11px; color: #8a8a92; background: #26262a; border-radius: 999px; padding: 0 5px; }
+.chip.on b { color: #fff; background: rgba(0, 0, 0, 0.25); }
+.idx .chips { max-height: 132px; overflow-y: auto; }
+
+.sub { margin: 14px 0 4px; font-size: 13px; color: #8a8a92; }
+.row { padding: 14px 2px; border-top: 1px solid #232326; }
+.row:hover { background: #1a1a1d; }
+.title {
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e6e6ea;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.title:hover { color: #ff7a45; text-decoration: underline; }
+.row .chips { margin-bottom: 6px; }
+.meta { font-size: 12px; color: #8a8a92; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tag { background: #232326; border-radius: 6px; padding: 1px 8px; margin-right: 6px; }
+.mono { font-family: Consolas, Menlo, monospace; color: #a8a8b0; }
+.muted { color: #8a8a92; font-size: 12px; }
+.empty { padding: 40px 0; text-align: center; color: #6f6f76; }
+
+.pager { display: flex; align-items: center; justify-content: center; gap: 14px; padding-top: 16px; }
+.foot-note { margin-top: 18px; font-size: 12px; color: #55555c; text-align: center; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 34px;
+  transform: translateX(-50%);
+  background: #26262a;
+  border: 1px solid #3a3a40;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  z-index: 9;
+}
